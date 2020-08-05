@@ -283,6 +283,7 @@ describe('*********** USERS ***********', () => {
           res.should.have.status(201)
           res.body.should.be.a('object')
           res.body.should.include.keys('_id', 'name', 'email', 'verification')
+          done()
           // chai
           //   .request(server)
           //   .delete(`/users/${res.body._id}`)

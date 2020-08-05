@@ -283,16 +283,16 @@ describe('*********** USERS ***********', () => {
           res.should.have.status(201)
           res.body.should.be.a('object')
           res.body.should.include.keys('_id', 'name', 'email', 'verification')
-          chai
-            .request(server)
-            .delete(`/users/${res.body._id}`)
-            .set('Authorization', `Bearer ${tokens.admin}`)
-            .end((error, result) => {
-              result.should.have.status(200)
-              result.body.should.be.a('object')
-              result.body.should.have.property('msg').eql('DELETED')
-              done()
-            })
+          // chai
+          //   .request(server)
+          //   .delete(`/users/${res.body._id}`)
+          //   .set('Authorization', `Bearer ${tokens.admin}`)
+          //   .end((error, result) => {
+          //     result.should.have.status(200)
+          //     result.body.should.be.a('object')
+          //     result.body.should.have.property('msg').eql('DELETED')
+          //     done()
+          //   })
         })
     })
   })

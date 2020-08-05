@@ -2,19 +2,25 @@ pipeline {
   
 agent any
   stages {
-    stage('Git') {
-      steps {
-        sh 'echo "GIT"'
-      }
-    }
     stage('Build') {
       steps {
-        sh 'echo "GIT"'
+            sh 'npm install'
+            sh 'cp .env.example .env'
+        }
+    }
+    stage('DB') {
+      steps {
+        sh 'npm run seed'
       }
     }  
     stage('Test') {
       steps {
-        sh 'echo "Test"'
+        sh 'npm run test'
+      }
+    }
+    stage('Deploy') {
+      steps {
+        sh 'npm run start'
       }
     }
   }
